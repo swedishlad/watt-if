@@ -1,6 +1,6 @@
 {
- "builtAt": "2026-11-12T21:39:28Z",
- "gridThrough": "2026-11-02",
+ "builtAt": "2026-11-13T21:05:41Z",
+ "gridThrough": "2026-11-03",
  "homesThrough": "2026-08",
  "forecastHorizon": [
   "2026-12",
@@ -18,13 +18,13 @@
    "id": "S19",
    "name": "EIA-930 hourly demand by ISO-NE subregion (published ~10 days late)",
    "from": "2024-01-01",
-   "to": "2026-11-02"
+   "to": "2026-11-03"
   },
   {
    "id": "S20",
    "name": "Open-Meteo daily mean temperature, bias-corrected to ISO-NE's zone points",
    "from": "2024-01-01",
-   "to": "2026-11-02"
+   "to": "2026-11-03"
   },
   {
    "id": "S15",
