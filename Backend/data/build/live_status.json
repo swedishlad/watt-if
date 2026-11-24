@@ -1,7 +1,7 @@
 {
- "builtAt": "2026-11-24T01:48:11Z",
- "gridThrough": "2026-11-13",
- "homesThrough": "2026-08",
+ "builtAt": "2026-11-24T23:37:05Z",
+ "gridThrough": "2026-11-14",
+ "homesThrough": "2026-09",
  "forecastHorizon": [
   "2026-12",
   "2027-05"
@@ -18,19 +18,19 @@
    "id": "S19",
    "name": "EIA-930 hourly demand by ISO-NE subregion (published ~10 days late)",
    "from": "2024-01-01",
-   "to": "2026-11-13"
+   "to": "2026-11-14"
   },
   {
    "id": "S20",
    "name": "Open-Meteo daily mean temperature, bias-corrected to ISO-NE's zone points",
    "from": "2024-01-01",
-   "to": "2026-11-13"
+   "to": "2026-11-14"
   },
   {
    "id": "S15",
    "name": "EIA-861M monthly retail sales, Massachusetts (published ~2 months late)",
    "from": "2010-01",
-   "to": "2026-08"
+   "to": "2026-09"
   }
  ],
  "gates": [

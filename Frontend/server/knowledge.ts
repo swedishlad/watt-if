@@ -3,7 +3,7 @@
 
 export const KNOWLEDGE = `# Watt If knowledge base
 
-Reference data for the Watt If assistant, generated from the backend artifacts the dashboard reads. Newest EIA month: Aug 2026; regimes and forecast as of 2026-11-24; basic-service rates published through Jan 2027.
+Reference data for the Watt If assistant, generated from the backend artifacts the dashboard reads. Newest EIA month: Sep 2026; regimes and forecast as of 2026-11-24; basic-service rates published through Jan 2027.
 
 ## The site
 
@@ -43,16 +43,16 @@ Interactive tools:
 
 ## Headline numbers
 
-- Newest EIA month: Aug 2026 (preliminary; EIA revises 2026 months, so they can change).
-- Average residential price, last 12 months (Sep 2025 – Aug 2026): **30.4¢/kWh**, +0.8% on the previous 12 months (30.2¢) and 2.1× the 2010 average of 14.6¢. All utilities, delivery and supply combined.
-- Aug 2026 alone: 30.48¢/kWh average price, 774 kWh per account.
+- Newest EIA month: Sep 2026 (preliminary; EIA revises 2026 months, so they can change).
+- Average residential price, last 12 months (Oct 2025 – Sep 2026): **30.4¢/kWh**, +0.7% on the previous 12 months (30.2¢) and 2.1× the 2010 average of 14.6¢. All utilities, delivery and supply combined.
+- Sep 2026 alone: 30.97¢/kWh average price, 623 kWh per account.
 - Typical home, calendar 2025: **7,135 kWh a year** (about 595 kWh a month); by month Jan–Dec: 687, 652, 566, 527, 483, 554, 791, 710, 542, 497, 459, 667 kWh.
-- Residential sales, last 12 months: 21.3 TWh (+2.3% vs the previous 12 months).
-- Residential accounts, 12-month average: 2,938,734 (+0.5%).
+- Residential sales, last 12 months: 21.5 TWh (+3.4% vs the previous 12 months).
+- Residential accounts, 12-month average: 2,937,048 (+0.2%).
 - Basic service fixed rates, Aug 2026 – Jan 2027 (supply only): National Grid 17.185¢, Eversource East 17.323¢, Eversource West 15.934¢, Unitil 18.921¢.
 - Basic service monthly option for Jan 2027 (newest published month, winter peak): National Grid 20.086¢, Eversource East 25.510¢, Eversource West 23.742¢, Unitil 31.010¢.
-- Homes vs their usual range, Aug 2026: **Above range**, +8.3% vs the same month in the previous 5 years (usual range ±5.0%).
-- Grid zones on Nov 13, 2026 (the latest day EIA has published; refreshed daily): NEMA Within range (+5.9%), SEMA Above range (+9.4%), WCMA Above range (+7.1%), MA Above range (+7.1%).
+- Homes vs their usual range, Sep 2026: **Within range**, +3.5% vs the same month in the previous 5 years (usual range ±8.0%).
+- Grid zones on Nov 14, 2026 (the latest day EIA has published; refreshed daily): NEMA Within range (−0.1%), SEMA Above range (+3.9%), WCMA Within range (0.0%), MA Within range (+1.0%).
 - Grid forecast, Dec 2026 – May 2027 (median, 80% range): NEMA 11.7 TWh (11.3–12.0), SEMA 6.8 TWh (6.6–7.0), WCMA 7.9 TWh (7.6–8.2), MA 26.4 TWh (25.6–27.2).
 
 ## The savings calculator ("Did your supplier save you money?", Prices & savings tab)
@@ -171,48 +171,48 @@ Average price = revenue ÷ sales for the year (EIA's definition), never an avera
 | 2024 | 29.35 | 19,993 | 2,924,530 | 6,836 |
 | 2025 | 30.41 | 20,861 | 2,919,187 | 7,146 |
 
-2026 so far (Jan 2026 – Aug 2026, preliminary): 30.19¢/kWh average price, 14,922 GWh sold.
+2026 so far (Jan 2026 – Sep 2026, preliminary): 30.27¢/kWh average price, 16,737 GWh sold.
 
 ## Below / Within / Above range (Regime tab)
 
 - Definition: usual range = historical average +/- 1 standard deviation, same period of the previous 5 years. Above range = above the historical average range; Within = within the historical average range; Below = below the historical average range.
 - Method: 3-state Gaussian HMM (hand-rolled Baum-Welch) on z = (consumption - historical average) / historical sd, same period of the previous 5 years only; state means anchored at -1.5/0/+1.5 sd (below/within/above the range), tied spread and transitions learned; monthly walk-forward refit; forward-filtered. Leakage test (no look-ahead): pass.
 - How to read the outlook: today's state odds carried forward. A tested model of the gap is used only at horizons where it beat the long-run odds in a walk-forward test; otherwise the outlook is the long-run odds. It is not a weather forecast.
-- Zones NEMA/SEMA/WCMA/MA: daily load, all customer classes, 2020-01-01 to 2026-11-13 (ISO-NE to 2023, then EIA-930, which publishes ISO-NE zone data about 10 days late; refreshed daily).
-- MA_RES: EIA-861M residential kWh per account (12-month mean of customers), monthly 2016-01 to 2026-08: the current light (EIA posts each month about two months later).
+- Zones NEMA/SEMA/WCMA/MA: daily load, all customer classes, 2020-01-01 to 2026-11-14 (ISO-NE to 2023, then EIA-930, which publishes ISO-NE zone data about 10 days late; refreshed daily).
+- MA_RES: EIA-861M residential kWh per account (12-month mean of customers), monthly 2016-01 to 2026-09: the current light (EIA posts each month about two months later).
 - Each day/month is compared with the same period in the previous 5 years only, so history is never re-coloured by later data.
 - Weather is not removed: a heat wave or cold snap that pushes use above the range shows red.
 - outlook / forecast: an AR(1) model of the gap is used at a horizon only where it beat the long-run mix in a walk-forward test (each entry's method, skill and n say which); otherwise they show the long-run odds. HMM transitions alone lost to the long-run mix, so they are not used for the future.
 
 ### NEMA: Northeast MA & Boston (daily, ISO-NE / EIA-930)
 
-- Latest day, Nov 13, 2026: **Within range**, +5.9% vs the 5-year average (usual range ±5.3%); below / within / above odds now 0% / 72% / 28%.
-- Outlook (below / within / above): 7 days 9% / 65% / 26%; 30 days 21% / 64% / 15% (long-run odds); 90 days 21% / 64% / 15% (long-run odds).
-- Long-run behaviour: Below range 25% of days, lasting about 3.8 days; Within range 60% of days, lasting about 5.8 days; Above range 15% of days, lasting about 4.2 days.
+- Latest day, Nov 14, 2026: **Within range**, −0.1% vs the 5-year average (usual range ±5.7%); below / within / above odds now 1% / 97% / 2%.
+- Outlook (below / within / above): 7 days 18% / 68% / 14%; 30 days 21% / 64% / 15% (long-run odds); 90 days 21% / 64% / 15% (long-run odds).
+- Long-run behaviour: Below range 25% of days, lasting about 3.8 days; Within range 60% of days, lasting about 5.9 days; Above range 15% of days, lasting about 4.2 days.
 
 ### SEMA: Southeast MA (daily, ISO-NE / EIA-930)
 
-- Latest day, Nov 13, 2026: **Above range**, +9.4% vs the 5-year average (usual range ±5.8%); below / within / above odds now 0% / 18% / 82%.
-- Outlook (below / within / above): 7 days 8% / 63% / 29%; 30 days 18% / 65% / 17% (long-run odds); 90 days 18% / 65% / 17% (long-run odds).
+- Latest day, Nov 14, 2026: **Above range**, +3.9% vs the 5-year average (usual range ±6.2%); below / within / above odds now 0% / 47% / 53%.
+- Outlook (below / within / above): 7 days 14% / 66% / 20%; 30 days 18% / 65% / 17% (long-run odds); 90 days 18% / 65% / 17% (long-run odds).
 - Long-run behaviour: Below range 22% of days, lasting about 3.5 days; Within range 61% of days, lasting about 5.4 days; Above range 18% of days, lasting about 4.0 days.
 
 ### WCMA: West & Central MA (daily, ISO-NE / EIA-930)
 
-- Latest day, Nov 13, 2026: **Above range**, +7.1% vs the 5-year average (usual range ±6.5%); below / within / above odds now 0% / 48% / 52%.
-- Outlook (below / within / above): 7 days 10% / 67% / 23%; 30 days 21% / 65% / 13% (long-run odds); 90 days 21% / 65% / 13% (long-run odds).
+- Latest day, Nov 14, 2026: **Within range**, 0.0% vs the 5-year average (usual range ±6.8%); below / within / above odds now 1% / 96% / 3%.
+- Outlook (below / within / above): 7 days 18% / 69% / 13%; 30 days 21% / 65% / 13% (long-run odds); 90 days 21% / 65% / 13% (long-run odds).
 - Long-run behaviour: Below range 25% of days, lasting about 3.1 days; Within range 61% of days, lasting about 4.8 days; Above range 14% of days, lasting about 3.7 days.
 
 ### MA grid (three zones added, daily, ISO-NE / EIA-930)
 
-- Latest day, Nov 13, 2026: **Above range**, +7.1% vs the 5-year average (usual range ±5.7%); below / within / above odds now 0% / 47% / 53%.
-- Outlook (below / within / above): 7 days 9% / 65% / 26%; 30 days 20% / 65% / 15% (long-run odds); 90 days 20% / 65% / 15% (long-run odds).
+- Latest day, Nov 14, 2026: **Within range**, +1.0% vs the 5-year average (usual range ±6.1%); below / within / above odds now 0% / 92% / 8%.
+- Outlook (below / within / above): 7 days 16% / 68% / 15%; 30 days 20% / 65% / 15% (long-run odds); 90 days 20% / 65% / 15% (long-run odds).
 - Long-run behaviour: Below range 24% of days, lasting about 3.4 days; Within range 61% of days, lasting about 5.3 days; Above range 15% of days, lasting about 4.0 days.
 
 ### Homes (statewide residential use per account, monthly, EIA)
 
-- Latest month, Aug 2026: **Above range**, +8.3% vs the 5-year average (usual range ±5.0%); below / within / above odds now 0% / 2% / 98%.
-- Next months (below / within / above): Sep 2026 Within range (11% / 49% / 40%); Oct 2026 Within range (24% / 50% / 27%); Nov 2026 Within range (34% / 47% / 19%, long-run odds); Dec 2026 Within range (34% / 47% / 19%, long-run odds); Jan 2027 Within range (34% / 47% / 19%, long-run odds); Feb 2027 Within range (34% / 47% / 19%, long-run odds).
-- Long-run behaviour: Below range 45% of months, lasting about 118.9 days; Within range 33% of months, lasting about 61.0 days; Above range 22% of months, lasting about 68.2 days.
+- Latest month, Sep 2026: **Within range**, +3.5% vs the 5-year average (usual range ±8.0%); below / within / above odds now 0% / 70% / 30%.
+- Next months (below / within / above): Oct 2026 Within range (21% / 55% / 24%); Nov 2026 Within range (29% / 50% / 21%); Dec 2026 Within range (34% / 47% / 19%, long-run odds); Jan 2027 Within range (34% / 47% / 19%, long-run odds); Feb 2027 Within range (34% / 47% / 19%, long-run odds); Mar 2027 Within range (34% / 47% / 19%, long-run odds).
+- Long-run behaviour: Below range 45% of months, lasting about 118.9 days; Within range 33% of months, lasting about 60.5 days; Above range 22% of months, lasting about 66.4 days.
 
 ### Share of days below / within / above range, by month (grid zones)
 
@@ -302,13 +302,13 @@ Average price = revenue ÷ sales for the year (EIA's definition), never an avera
 | Aug 2026 | 0% / 81% / 19% | 0% / 77% / 23% | 19% / 74% / 6% | 10% / 71% / 19% |
 | Sep 2026 | 13% / 80% / 7% | 7% / 87% / 7% | 33% / 63% / 3% | 17% / 77% / 7% |
 | Oct 2026 | 10% / 81% / 10% | 3% / 84% / 13% | 19% / 74% / 6% | 13% / 77% / 10% |
-| Nov 2026 | 8% / 77% / 15% | 23% / 69% / 8% | 15% / 77% / 8% | 8% / 85% / 8% |
+| Nov 2026 | 7% / 79% / 14% | 21% / 64% / 14% | 14% / 79% / 7% | 7% / 86% / 7% |
 
 ## Six-month grid load forecast, Dec 2026 – May 2027 (Regime tab)
 
-- What it is: 10,000 simulated paths (weather bootstrap (the same months of 2017..2025, +/-7 days) x rolling 2-year weather model fit to 2026-11-13 x 3-state HMM regime-switching residual (tied sd)), on daily load observed through Nov 13, 2026 (ISO-NE 2017–2023, then EIA-930; refreshed daily). Each path carries the recent load level and its uncertainty. All customer classes (homes and businesses), not a household bill. There is no separate forecast for the homes series.
+- What it is: 10,000 simulated paths (weather bootstrap (the same months of 2017..2025, +/-7 days) x rolling 2-year weather model fit to 2026-11-14 x 3-state HMM regime-switching residual (tied sd)), on daily load observed through Nov 14, 2026 (ISO-NE 2017–2023, then EIA-930; refreshed daily). Each path carries the recent load level and its uncertainty. All customer classes (homes and businesses), not a household bill. There is no separate forecast for the homes series.
 - Tested before shown: refit before each of the last 7 winters (2019-20 .. 2025-26) and run on months it had not seen (126 zone-months). The 80% range held the actual 79% of the time (90% range: 87%), the median's error was 4% smaller than a "same month last year" guess, and six-month totals missed by 2.2% on average. It is a simulation, never a promise.
-- Regional load of all customer classes, observed daily through 2026-11-13 (ISO-NE 2017-2023, then EIA-930). The horizon is the 6 full months after the last observed day and moves forward as data arrives.
+- Regional load of all customer classes, observed daily through 2026-11-14 (ISO-NE 2017-2023, then EIA-930). The horizon is the 6 full months after the last observed day and moves forward as data arrives.
 - sameMonthsLastObservedGWh = the load actually observed in the same months a year earlier (2025-12 .. 2026-05).
 - Calibration fit only on data <= 2021-10-31, weather from seasons 2017-2021.
 - MA = the three zones summed per path; zone residuals are simulated independently (MA spread may be too narrow).
@@ -316,12 +316,12 @@ Average price = revenue ÷ sales for the year (EIA's definition), never an avera
 
 ### NEMA: Northeast MA & Boston
 
-Six-month total: median 11,668 GWh, 80% range 11,318–12,044 GWh, 90% range 11,217–12,155 GWh.
+Six-month total: median 11,669 GWh, 80% range 11,318–12,045 GWh, 90% range 11,216–12,156 GWh.
 
 | Month | P10 GWh | Median GWh | P90 GWh | Same month a year earlier (observed) |
 |---|---|---|---|---|
 | Dec 2026 | 2,019 | 2,107 | 2,216 | 2,191 |
-| Jan 2027 | 2,083 | 2,205 | 2,326 | 2,295 |
+| Jan 2027 | 2,084 | 2,205 | 2,326 | 2,295 |
 | Feb 2027 | 1,858 | 1,955 | 2,070 | 2,063 |
 | Mar 2027 | 1,861 | 1,937 | 2,014 | 1,951 |
 | Apr 2027 | 1,648 | 1,712 | 1,778 | 1,704 |
@@ -329,42 +329,42 @@ Six-month total: median 11,668 GWh, 80% range 11,318–12,044 GWh, 90% range 11,
 
 ### SEMA: Southeast MA
 
-Six-month total: median 6,803 GWh, 80% range 6,608–7,022 GWh, 90% range 6,554–7,080 GWh.
+Six-month total: median 6,803 GWh, 80% range 6,608–7,023 GWh, 90% range 6,555–7,081 GWh.
 
 | Month | P10 GWh | Median GWh | P90 GWh | Same month a year earlier (observed) |
 |---|---|---|---|---|
 | Dec 2026 | 1,216 | 1,268 | 1,332 | 1,310 |
 | Jan 2027 | 1,229 | 1,298 | 1,372 | 1,359 |
-| Feb 2027 | 1,071 | 1,127 | 1,199 | 1,206 |
+| Feb 2027 | 1,072 | 1,127 | 1,199 | 1,206 |
 | Mar 2027 | 1,077 | 1,121 | 1,172 | 1,143 |
 | Apr 2027 | 942 | 977 | 1,015 | 974 |
 | May 2027 | 963 | 1,004 | 1,045 | 1,004 |
 
 ### WCMA: West & Central MA
 
-Six-month total: median 7,901 GWh, 80% range 7,579–8,229 GWh, 90% range 7,485–8,328 GWh.
+Six-month total: median 7,901 GWh, 80% range 7,579–8,230 GWh, 90% range 7,486–8,328 GWh.
 
 | Month | P10 GWh | Median GWh | P90 GWh | Same month a year earlier (observed) |
 |---|---|---|---|---|
-| Dec 2026 | 1,380 | 1,457 | 1,547 | 1,528 |
+| Dec 2026 | 1,380 | 1,457 | 1,548 | 1,528 |
 | Jan 2027 | 1,413 | 1,505 | 1,600 | 1,583 |
 | Feb 2027 | 1,266 | 1,342 | 1,424 | 1,420 |
-| Mar 2027 | 1,243 | 1,308 | 1,377 | 1,329 |
-| Apr 2027 | 1,079 | 1,131 | 1,186 | 1,129 |
+| Mar 2027 | 1,243 | 1,308 | 1,378 | 1,329 |
+| Apr 2027 | 1,079 | 1,132 | 1,186 | 1,129 |
 | May 2027 | 1,095 | 1,150 | 1,208 | 1,155 |
 
 ### Massachusetts (three zones added)
 
-Six-month total: median 26,374 GWh, 80% range 25,558–27,237 GWh, 90% range 25,317–27,498 GWh.
+Six-month total: median 26,376 GWh, 80% range 25,560–27,239 GWh, 90% range 25,318–27,501 GWh.
 
 | Month | P10 GWh | Median GWh | P90 GWh | Same month a year earlier (observed) |
 |---|---|---|---|---|
-| Dec 2026 | 4,646 | 4,829 | 5,065 | 5,029 |
+| Dec 2026 | 4,647 | 4,830 | 5,064 | 5,029 |
 | Jan 2027 | 4,746 | 5,009 | 5,272 | 5,237 |
-| Feb 2027 | 4,223 | 4,424 | 4,669 | 4,689 |
+| Feb 2027 | 4,223 | 4,424 | 4,670 | 4,689 |
 | Mar 2027 | 4,210 | 4,366 | 4,538 | 4,424 |
-| Apr 2027 | 3,693 | 3,820 | 3,952 | 3,807 |
-| May 2027 | 3,760 | 3,899 | 4,044 | 3,924 |
+| Apr 2027 | 3,694 | 3,821 | 3,953 | 3,807 |
+| May 2027 | 3,761 | 3,899 | 4,045 | 3,924 |
 
 ## Climate section (Energy data tab; modeled household emissions)
 
@@ -434,9 +434,9 @@ Solar and battery timing, default home:
 
 | Zone | Towns | 6-mo forecast | Population 2024 | Change since 2020 |
 |---|---|---|---|---|
-| NEMA (Northeast MA & Boston) | 92 | 24,117.0 GWh | 3,286,038 | +1.7% |
-| SEMA (Southeast MA) | 98 | 14,300.7 GWh | 2,139,738 | +2.3% |
-| WCMA (West & Central MA) | 161 | 15,992.7 GWh | 1,710,395 | +2.4% |
+| NEMA (Northeast MA & Boston) | 92 | 24,114.1 GWh | 3,286,038 | +1.7% |
+| SEMA (Southeast MA) | 98 | 14,300.3 GWh | 2,139,738 | +2.3% |
+| WCMA (West & Central MA) | 161 | 15,991.0 GWh | 1,710,395 | +2.4% |
 
 | Town | County | Zone | 6-mo forecast | Pop. 2024 | Change since 2020 |
 |---|---|---|---|---|---|
@@ -447,7 +447,7 @@ Solar and battery timing, default home:
 | Agawam Town | Hampden | WCMA | 132.8 GWh | 28,749 | +0.4% |
 | Alford | Berkshire | WCMA | 2.2 GWh | 483 | −1.0% |
 | Amesbury Town | Essex | NEMA | 62.6 GWh | 17,617 | +1.6% |
-| Amherst | Hampshire | WCMA | 189.3 GWh | 40,989 | +47.4% |
+| Amherst | Hampshire | WCMA | 189.4 GWh | 40,989 | +47.4% |
 | Andover | Essex | NEMA | 131.1 GWh | 36,927 | +1.0% |
 | Aquinnah | Dukes | SEMA | 1.4 GWh | 451 | +1.8% |
 | Arlington | Middlesex | NEMA | 167.3 GWh | 47,112 | +2.0% |
@@ -515,7 +515,7 @@ Solar and battery timing, default home:
 | Dartmouth | Bristol | SEMA | 108.5 GWh | 34,139 | +8.5% |
 | Dedham | Norfolk | SEMA | 81.0 GWh | 25,485 | +1.1% |
 | Deerfield | Franklin | WCMA | 23.9 GWh | 5,177 | +1.6% |
-| Dennis | Barnstable | SEMA | 47.2 GWh | 14,862 | +1.3% |
+| Dennis | Barnstable | SEMA | 47.3 GWh | 14,862 | +1.3% |
 | Dighton | Bristol | SEMA | 26.3 GWh | 8,275 | +1.9% |
 | Douglas | Worcester | WCMA | 43.7 GWh | 9,452 | +5.1% |
 | Dover | Norfolk | SEMA | 19.3 GWh | 6,057 | +2.3% |
@@ -535,7 +535,7 @@ Solar and battery timing, default home:
 | Essex | Essex | NEMA | 13.4 GWh | 3,760 | +2.2% |
 | Everett | Middlesex | NEMA | 184.0 GWh | 51,825 | +5.9% |
 | Fairhaven | Bristol | SEMA | 50.9 GWh | 16,005 | +0.6% |
-| Fall River | Bristol | SEMA | 301.0 GWh | 94,689 | +0.8% |
+| Fall River | Bristol | SEMA | 301.1 GWh | 94,689 | +0.8% |
 | Falmouth | Barnstable | SEMA | 105.6 GWh | 33,227 | +2.1% |
 | Fitchburg | Worcester | WCMA | 194.7 GWh | 42,145 | +1.1% |
 | Florida | Berkshire | WCMA | 3.1 GWh | 673 | −2.5% |
@@ -590,7 +590,7 @@ Solar and battery timing, default home:
 | Lanesborough | Berkshire | WCMA | 13.9 GWh | 3,004 | −1.1% |
 | Lawrence | Essex | NEMA | 317.2 GWh | 89,332 | +0.5% |
 | Lee | Berkshire | WCMA | 26.2 GWh | 5,682 | −1.6% |
-| Leicester | Worcester | WCMA | 51.8 GWh | 11,224 | +1.4% |
+| Leicester | Worcester | WCMA | 51.9 GWh | 11,224 | +1.4% |
 | Lenox | Berkshire | WCMA | 23.4 GWh | 5,072 | −0.4% |
 | Leominster | Worcester | WCMA | 204.2 GWh | 44,209 | +1.0% |
 | Leverett | Franklin | WCMA | 8.6 GWh | 1,863 | +0.1% |
@@ -606,7 +606,7 @@ Solar and battery timing, default home:
 | Lynnfield | Essex | NEMA | 47.0 GWh | 13,230 | +1.9% |
 | Malden | Middlesex | NEMA | 236.8 GWh | 66,693 | +0.9% |
 | Manchester-by-the-Sea | Essex | NEMA | 19.4 GWh | 5,467 | +1.5% |
-| Mansfield | Bristol | SEMA | 76.5 GWh | 24,077 | +1.0% |
+| Mansfield | Bristol | SEMA | 76.6 GWh | 24,077 | +1.0% |
 | Marblehead | Essex | NEMA | 73.1 GWh | 20,576 | +0.9% |
 | Marion | Plymouth | SEMA | 17.0 GWh | 5,341 | +0.1% |
 | Marlborough | Middlesex | NEMA | 149.7 GWh | 42,169 | +1.2% |
@@ -678,16 +678,16 @@ Solar and battery timing, default home:
 | Pittsfield | Berkshire | WCMA | 199.2 GWh | 43,121 | −1.6% |
 | Plainfield | Hampshire | WCMA | 3.0 GWh | 649 | +3.0% |
 | Plainville | Norfolk | SEMA | 32.0 GWh | 10,067 | +1.4% |
-| Plymouth | Plymouth | SEMA | 211.9 GWh | 66,663 | +9.2% |
+| Plymouth | Plymouth | SEMA | 212.0 GWh | 66,663 | +9.2% |
 | Plympton | Plymouth | SEMA | 9.4 GWh | 2,964 | +1.3% |
 | Princeton | Worcester | WCMA | 16.6 GWh | 3,597 | +3.0% |
 | Provincetown | Barnstable | SEMA | 11.9 GWh | 3,729 | +1.9% |
-| Quincy | Norfolk | SEMA | 328.8 GWh | 103,434 | +1.9% |
+| Quincy | Norfolk | SEMA | 328.9 GWh | 103,434 | +1.9% |
 | Randolph Town | Norfolk | SEMA | 111.6 GWh | 35,114 | +0.4% |
 | Raynham | Bristol | SEMA | 50.4 GWh | 15,861 | +4.4% |
 | Reading | Middlesex | NEMA | 92.5 GWh | 26,041 | +2.0% |
 | Rehoboth | Bristol | SEMA | 43.0 GWh | 13,537 | +8.1% |
-| Revere | Suffolk | NEMA | 215.5 GWh | 60,702 | −2.0% |
+| Revere | Suffolk | NEMA | 215.6 GWh | 60,702 | −2.0% |
 | Richmond | Berkshire | WCMA | 6.5 GWh | 1,405 | −0.4% |
 | Rochester | Plymouth | SEMA | 18.9 GWh | 5,936 | +3.7% |
 | Rockland | Plymouth | SEMA | 56.3 GWh | 17,708 | −0.4% |
@@ -705,7 +705,7 @@ Solar and battery timing, default home:
 | Savoy | Berkshire | WCMA | 3.0 GWh | 655 | +1.6% |
 | Scituate | Plymouth | SEMA | 62.3 GWh | 19,598 | +2.8% |
 | Seekonk | Bristol | SEMA | 50.6 GWh | 15,912 | +2.4% |
-| Sharon | Norfolk | SEMA | 59.6 GWh | 18,762 | +1.2% |
+| Sharon | Norfolk | SEMA | 59.7 GWh | 18,762 | +1.2% |
 | Sheffield | Berkshire | WCMA | 15.4 GWh | 3,324 | 0.0% |
 | Shelburne | Franklin | WCMA | 8.7 GWh | 1,874 | −0.5% |
 | Sherborn | Middlesex | NEMA | 15.9 GWh | 4,485 | +2.1% |
@@ -719,12 +719,12 @@ Solar and battery timing, default home:
 | Southborough | Worcester | WCMA | 48.8 GWh | 10,569 | +1.2% |
 | Southbridge Town | Worcester | WCMA | 83.6 GWh | 18,106 | +2.3% |
 | Southwick | Hampden | WCMA | 42.9 GWh | 9,277 | +0.7% |
-| Spencer | Worcester | WCMA | 55.8 GWh | 12,090 | +1.1% |
+| Spencer | Worcester | WCMA | 55.9 GWh | 12,090 | +1.1% |
 | Springfield | Hampden | WCMA | 715.5 GWh | 154,888 | −0.2% |
 | Sterling | Worcester | WCMA | 38.4 GWh | 8,310 | +4.2% |
 | Stockbridge | Berkshire | WCMA | 9.2 GWh | 1,986 | −0.7% |
 | Stoneham | Middlesex | NEMA | 87.2 GWh | 24,550 | +5.9% |
-| Stoughton | Norfolk | SEMA | 93.6 GWh | 29,457 | +0.7% |
+| Stoughton | Norfolk | SEMA | 93.7 GWh | 29,457 | +0.7% |
 | Stow | Middlesex | NEMA | 26.0 GWh | 7,335 | +2.5% |
 | Sturbridge | Worcester | WCMA | 46.6 GWh | 10,097 | +2.4% |
 | Sudbury | Middlesex | NEMA | 70.3 GWh | 19,805 | +4.9% |
@@ -742,13 +742,13 @@ Solar and battery timing, default home:
 | Truro | Barnstable | SEMA | 7.9 GWh | 2,484 | +1.8% |
 | Tyngsborough | Middlesex | NEMA | 45.4 GWh | 12,779 | +3.1% |
 | Tyringham | Berkshire | WCMA | 1.9 GWh | 419 | −1.6% |
-| Upton | Worcester | WCMA | 39.1 GWh | 8,475 | +5.9% |
+| Upton | Worcester | WCMA | 39.2 GWh | 8,475 | +5.9% |
 | Uxbridge | Worcester | WCMA | 67.9 GWh | 14,703 | +3.6% |
 | Wakefield | Middlesex | NEMA | 103.7 GWh | 29,216 | +7.9% |
 | Wales | Hampden | WCMA | 8.4 GWh | 1,828 | −0.1% |
 | Walpole | Norfolk | SEMA | 83.9 GWh | 26,391 | −0.5% |
 | Waltham | Middlesex | NEMA | 233.8 GWh | 65,849 | +2.5% |
-| Ware | Hampshire | WCMA | 46.8 GWh | 10,142 | +1.0% |
+| Ware | Hampshire | WCMA | 46.9 GWh | 10,142 | +1.0% |
 | Wareham | Plymouth | SEMA | 74.8 GWh | 23,526 | +1.1% |
 | Warren | Worcester | WCMA | 23.5 GWh | 5,086 | +2.4% |
 | Warwick | Franklin | WCMA | 3.6 GWh | 774 | −1.0% |
@@ -777,7 +777,7 @@ Solar and battery timing, default home:
 | Westwood | Norfolk | SEMA | 52.6 GWh | 16,533 | +1.9% |
 | Weymouth Town | Norfolk | SEMA | 191.3 GWh | 60,159 | +4.7% |
 | Whately | Franklin | WCMA | 7.5 GWh | 1,626 | +0.5% |
-| Whitman | Plymouth | SEMA | 49.1 GWh | 15,459 | +2.2% |
+| Whitman | Plymouth | SEMA | 49.2 GWh | 15,459 | +2.2% |
 | Wilbraham | Hampden | WCMA | 67.7 GWh | 14,663 | +0.5% |
 | Williamsburg | Hampshire | WCMA | 11.4 GWh | 2,475 | −1.0% |
 | Williamstown | Berkshire | WCMA | 42.4 GWh | 9,189 | +5.4% |
@@ -787,7 +787,7 @@ Solar and battery timing, default home:
 | Windsor | Berkshire | WCMA | 3.8 GWh | 817 | −1.0% |
 | Winthrop Town | Suffolk | NEMA | 66.5 GWh | 18,739 | −2.7% |
 | Woburn | Middlesex | NEMA | 155.9 GWh | 43,895 | +7.5% |
-| Worcester | Worcester | WCMA | 976.0 GWh | 211,286 | +4.4% |
+| Worcester | Worcester | WCMA | 976.1 GWh | 211,286 | +4.4% |
 | Worthington | Hampshire | WCMA | 5.5 GWh | 1,181 | −0.9% |
 | Wrentham | Norfolk | SEMA | 39.8 GWh | 12,516 | +2.9% |
 | Yarmouth | Barnstable | SEMA | 80.1 GWh | 25,208 | +0.9% |
@@ -795,10 +795,10 @@ Solar and battery timing, default home:
 ## Sources and limits (Data & methods tab)
 
 Sources:
-- U.S. EIA Form EIA-861M: Massachusetts residential revenue, sales, accounts, average price and kWh per account, Jan 2010 – Aug 2026 (2026 preliminary).
+- U.S. EIA Form EIA-861M: Massachusetts residential revenue, sales, accounts, average price and kWh per account, Jan 2010 – Sep 2026 (2026 preliminary).
 - Mass.gov DPU "Basic Service Rates" (retrieved 2 Jul 2026): monthly and fixed-option residential rates by utility, 2005 – Jan 2027.
 - U.S. EIA Residential Energy Consumption Survey 2020: 552 Massachusetts homes with yearly kWh, size, heating fuel, home type, household size and survey weight.
-- ISO New England (2017 – 2023), then U.S. EIA-930 (2024 – Nov 13, 2026, published ~10 days late) with Open-Meteo temperature: daily load for NEMA, SEMA and WCMA, refreshed daily.
+- ISO New England (2017 – 2023), then U.S. EIA-930 (2024 – Nov 14, 2026, published ~10 days late) with Open-Meteo temperature: daily load for NEMA, SEMA and WCMA, refreshed daily.
 - U.S. Census Bureau: population of the 351 towns, 2020 and 2024. MassGIS (via the Leventhal Map & Education Center) town boundaries.
 
 Limits worth knowing:
@@ -1495,4 +1495,5 @@ Published through Jan 2027. Eversource East (then NSTAR) has no monthly values b
 | Jun 2026* | 29.61 | 576 | 3,005,341 | Low | Above range (+7.4%) |
 | Jul 2026* | 30.49 | 738 | 3,063,535 | High | Above range (+7.6%) |
 | Aug 2026* | 30.48 | 774 | 2,921,850 | High | Above range (+8.3%) |
+| Sep 2026* | 30.97 | 623 | 2,914,008 | — | Within range (+3.5%) |
 `;
